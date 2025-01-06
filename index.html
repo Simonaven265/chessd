@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Chess Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/utils/BufferGeometryUtils.js"></script>
+</head>
+<body>
+    <div id="camera-mode">
+        <button class="mode-button active" data-mode="game">Game View</button>
+        <button class="mode-button" data-mode="free">Free Camera</button>
+    </div>
+    <div id="game-container">
+        <div id="game-info">
+            <div id="game-mode-select">
+                <button class="mode-button active" data-gamemode="ai">vs AI</button>
+                <button class="mode-button" data-gamemode="pvp">vs Player</button>
+            </div>
+            <div id="ai-difficulty">
+                <button class="difficulty-button active" data-difficulty="easy">Easy</button>
+                <button class="difficulty-button" data-difficulty="medium">Medium</button>
+                <button class="difficulty-button" data-difficulty="hard">Hard</button>
+            </div>
+            <span id="turn-display">White's Turn</span>
+            <button id="reset-game">New Game</button>
+            <div id="loading-indicator">Loading pieces...</div>
+        </div>
+        <div id="chess-board"></div>
+    </div>
+    <div id="game-over">
+        <h2 id="game-over-text"></h2>
+        <button onclick="window.location.reload()">Play Again</button>
+    </div>
+    <div id="chill-out-message" style="display: none;">
+        <h2>Chill out</h2>
+        <img src="https://i1.sndcdn.com/artworks-pF3qi5r20dvbTU0V-O1JFnA-t500x500.jpg" alt="Chill out image">
+        <button onclick="document.getElementById('chill-out-message').style.display='none'">Close</button>
+    </div>
+    <div id="perfect-button-container">
+        <button id="perfect-button">Perfect</button>
+    </div>
+    <div id="perfect-video-modal" style="display: none;">
+        <video id="perfect-video" controls>
+            <source src="TFS - P.E.R.F.E.C.T. Song.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <button id="close-video-button">Close</button>
+    </div>
+    <script src="chess-engine.js"></script>
+    <script src="chess-ai.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
